@@ -161,6 +161,10 @@ def login(username, password):  # Verifies the user entered "username" and "pass
 		# Verify the credentials and return True if correct
 		if userHash == usernames[location] and passHash == passwords[location]:
 			print("Logged in!\n")
+			#TO-DO: Make a accounts.db, table should have parent_username, account_title, username, password
+			#TO-DO: Check if username of this user is not in accounts.db and add it if not, else get their accounts or ask them if they want to add a new account. 
+			#TO-DO: Query the DB for all their accounts here
+			#TO-DO: Print them, ask for input, show password as per
 		elif userHash != usernames[location] or passHash != passwords:
 			print("Credentials not found! Please try again...\n")
 
@@ -179,14 +183,14 @@ def login(username, password):  # Verifies the user entered "username" and "pass
 
 ### MAIN PROGRAM ###
 	
-go = True
-while go:
+
+while True:
 	try:
 		option = int(input("Enter 1 to sign up\nEnter 2 to login\nEnter 3 to exit\n: "))
 
 		if option == 1:
-			username = input("\nPlease enter a username: ")
-			password = input("Please enter a password: ")
+			username = input("\nPlease choose a username: ")
+			password = input("Please enter a strong password for your account: ")
 			addUser(username, password)
 	
 		elif option == 2:
@@ -195,8 +199,9 @@ while go:
 			login(username, password)
 			
 		elif option == 3:
-			go = False
+			break
 	except:
 		print("Error... please try again.\n")
+		break
 
 ### END MAIN PROGRAM ###
