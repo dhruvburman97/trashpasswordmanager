@@ -12,9 +12,18 @@ The master password is saved within the source code (lol) and so I recommend sav
 
 Change MASTERPW to the password of your liking and then save the source code as compiled Python byte code using:
 
+```
 import py_compile
-py_compile.compile("filename.py")
+```
 
+```
+py_compile.compile("filename.py")
+```
+
+Run with 
+```
+python filename.pyc
+```
 *This project is designed as a proof of concept. I would be careful when using this in high-security environments.
 
 
